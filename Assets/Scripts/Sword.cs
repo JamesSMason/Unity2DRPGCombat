@@ -6,10 +6,15 @@ public class Sword : MonoBehaviour
 {
     private const string ATTACK_TRIGGER_STRING = "Attack";
 
+    [SerializeField] private GameObject slashAnimPrefab = null;
+    [SerializeField] private Transform slashAnimSpawnPoint = null;
+
     private PlayerController playerController = null;
     private ActiveWeapon activeWeapon = null;
     private PlayerControls playerControls = null;
     private Animator myAnimator = null;
+
+    private GameObject slashAnim;
 
     private void Awake()
     {
@@ -34,9 +39,32 @@ public class Sword : MonoBehaviour
         MouseFollowWithOffset();
     }
 
+    public void SwingUpFlipAnim()
+    {
+        slashAnim.transform.rotation = Quaternion.Euler(-180, 0, 0);
+
+        if (playerController.FacingLeft)
+        {
+            slashAnim.GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
+
+    public void SwingDownFlipAnim()
+    {
+        slashAnim.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+        if (playerController.FacingLeft)
+        {
+            slashAnim.GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
+
     private void Attack()
     {
         myAnimator.SetTrigger(ATTACK_TRIGGER_STRING);
+
+        slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
+        slashAnim.transform.parent = this.transform.parent;
     }
 
     private void MouseFollowWithOffset()
