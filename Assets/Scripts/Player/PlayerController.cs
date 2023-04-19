@@ -1,10 +1,9 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
-    public static PlayerController Instance { get; private set; }
-
     public bool FacingLeft { get { return facingLeft; } }
 
     [SerializeField] private TrailRenderer myTrailRenderer = null;
@@ -26,9 +25,9 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     private float startingMoveSpeed;
 
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
 
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
@@ -74,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
     private void AdjustPlayerFacingDirection()
     {
-        Vector3 mousePos = Input.mousePosition;
+        Vector3 mousePos = Mouse.current.position.ReadValue();
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(transform.position);
 
         if (playerScreenPoint.x > mousePos.x)

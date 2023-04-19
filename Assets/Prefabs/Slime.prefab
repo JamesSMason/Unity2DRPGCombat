@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 682232291132589210}
   - component: {fileID: 6635582193309766508}
   - component: {fileID: 6759542421814303494}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_Children:
   - {fileID: 466208099374511328}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4770764050231894651
 SpriteRenderer:

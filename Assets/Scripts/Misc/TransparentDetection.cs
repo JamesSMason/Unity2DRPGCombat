@@ -18,30 +18,36 @@ public class TransparentDetection : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (tilemap)
+        if (collision.gameObject.GetComponent<PlayerController>())
         {
-            StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, transparencyAmount));
-        }
-        else if (spriteRenderers.Length > 0)
-        {
-            foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+            if (tilemap)
             {
-                StartCoroutine(FadeRoutine(spriteRenderer, fadeTime, spriteRenderer.color.a, transparencyAmount));
+                StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, transparencyAmount));
+            }
+            else if (spriteRenderers.Length > 0)
+            {
+                foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+                {
+                    StartCoroutine(FadeRoutine(spriteRenderer, fadeTime, spriteRenderer.color.a, transparencyAmount));
+                }
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (tilemap)
+        if (collision.gameObject.GetComponent<PlayerController>())
         {
-            StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, 1f));
-        }
-        else if (spriteRenderers.Length > 0)
-        {
-            foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+            if (tilemap)
             {
-                StartCoroutine(FadeRoutine(spriteRenderer, fadeTime, spriteRenderer.color.a, 1f));
+                StartCoroutine(FadeRoutine(tilemap, fadeTime, tilemap.color.a, 1f));
+            }
+            else if (spriteRenderers.Length > 0)
+            {
+                foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+                {
+                    StartCoroutine(FadeRoutine(spriteRenderer, fadeTime, spriteRenderer.color.a, 1f));
+                }
             }
         }
     }
