@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Sword : MonoBehaviour, IWeapon
 {
     private const string ATTACK_TRIGGER_STRING = "Attack";
 
@@ -12,36 +12,20 @@ public class Sword : MonoBehaviour
 
     private PlayerController playerController = null;
     private ActiveWeapon activeWeapon = null;
-    private PlayerControls playerControls = null;
     private Animator myAnimator = null;
 
     private GameObject slashAnim;
-
-    private bool attackButtonDown, isAttacking = false;
 
     private void Awake()
     {
         playerController = GetComponentInParent<PlayerController>();
         activeWeapon = GetComponentInParent<ActiveWeapon>();
-        playerControls = new PlayerControls();
         myAnimator = GetComponent<Animator>();
-    }
-
-    private void OnEnable()
-    {
-        playerControls.Enable();
-    }
-
-    void Start()
-    {
-        playerControls.Combat.Attack.started += _ => StartAttacking();
-        playerControls.Combat.Attack.canceled += _ => StopAttacking();
     }
 
     private void Update()
     {
         MouseFollowWithOffset();
-        Attack();
     }
 
     public void SwingUpFlipAnimEvent()
@@ -69,30 +53,6 @@ public class Sword : MonoBehaviour
         weaponCollider.gameObject.SetActive(false);
     }
 
-    private void StartAttacking()
-    {
-        attackButtonDown = true;
-    }
-
-    private void StopAttacking()
-    {
-        attackButtonDown = false;
-    }
-
-    private void Attack()
-    {
-        if (attackButtonDown && !isAttacking)
-        {
-            isAttacking = true;
-            myAnimator.SetTrigger(ATTACK_TRIGGER_STRING);
-            weaponCollider.gameObject.SetActive(true);
-
-            slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
-            slashAnim.transform.parent = this.transform.parent;
-            StartCoroutine(AttackCDRoutine());
-        }
-    }
-
     private void MouseFollowWithOffset()
     {
         Vector3 mousePos = Input.mousePosition;
@@ -115,6 +75,17 @@ public class Sword : MonoBehaviour
     private IEnumerator AttackCDRoutine()
     {
         yield return new WaitForSeconds(swordAttackCD);
-        isAttacking = false;
+        ActiveWeapon.Instance.ToggleIsAttacking(false);
+    }
+
+    public void Attack()
+    {
+        //isAttacking = true;
+        myAnimator.SetTrigger(ATTACK_TRIGGER_STRING);
+        weaponCollider.gameObject.SetActive(true);
+
+        slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
+        slashAnim.transform.parent = this.transform.parent;
+        StartCoroutine(AttackCDRoutine());
     }
 }
