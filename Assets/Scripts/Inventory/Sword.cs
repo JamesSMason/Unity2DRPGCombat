@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Sword : MonoBehaviour, IWeapon
 {
@@ -58,7 +59,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     private void MouseFollowWithOffset()
     {
-        Vector3 mousePos = Input.mousePosition;
+        Vector3 mousePos = Mouse.current.position.ReadValue();
         Vector3 playerScreenPoint = Camera.main.WorldToScreenPoint(PlayerController.Instance.transform.position);
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
@@ -66,12 +67,12 @@ public class Sword : MonoBehaviour, IWeapon
         if (playerScreenPoint.x > mousePos.x)
         {
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, -180, angle);
-            weaponCollider.transform.rotation = Quaternion.Euler(0, -180, angle);
+            weaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
         else
         {
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
-            weaponCollider.transform.rotation = Quaternion.Euler(0, 0, angle);
+            weaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
