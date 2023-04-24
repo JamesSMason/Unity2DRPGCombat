@@ -168,6 +168,8 @@ MonoBehaviour:
   dashSpeed: 4
   dashTime: 0.2
   dashCD: 0.25
+  weaponCollider: {fileID: 9101770817208550978}
+  slashAnimSpawnPoint: {fileID: 5891778407977758755}
 --- !u!95 &7229306067984559929
 Animator:
   serializedVersion: 5
@@ -593,6 +595,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5891778407977758755}
+  - {fileID: 54513788615992367}
   m_Father: {fileID: 891664479208521572}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -608,4 +611,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472fcd88bb74b77429702e5905de70ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentActiveWeapon: {fileID: 0}
+--- !u!1001 &4021163757465648812
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 459214254436594471}
+    m_Modifications:
+    - target: {fileID: 3784052679708248220, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_Name
+      value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.693
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.575
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.837448
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.546517
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 66.257
+      objectReference: {fileID: 0}
+    - target: {fileID: 4048022413529913724, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: weaponCollider
+      value: 
+      objectReference: {fileID: 9101770817208550978}
+    - target: {fileID: 4048022413529913724, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+      propertyPath: slashAnimSpawnPoint
+      value: 
+      objectReference: {fileID: 5891778407977758755}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+--- !u!4 &54513788615992367 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3967573559575517827, guid: 99284a255b7d78a439133721dfe0beb5, type: 3}
+  m_PrefabInstance: {fileID: 4021163757465648812}
+  m_PrefabAsset: {fileID: 0}

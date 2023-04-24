@@ -11,6 +11,8 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private float dashSpeed = 4.0f;
     [SerializeField] private float dashTime = 0.2f;
     [SerializeField] private float dashCD = 0.25f;
+    [SerializeField] private Transform weaponCollider = null;
+    [SerializeField] private Transform slashAnimSpawnPoint = null;
 
     private PlayerControls playerControls = null;
     private Vector2 movement = Vector2.zero;
@@ -47,7 +49,7 @@ public class PlayerController : Singleton<PlayerController>
         playerControls.Enable();
     }
 
-    void Update()
+    private void Update()
     {
         PlayerInput();
     }
@@ -56,6 +58,16 @@ public class PlayerController : Singleton<PlayerController>
     {
         AdjustPlayerFacingDirection();
         Move();
+    }
+
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
+    }
+
+    public Transform GetSlashAnimSpawnPoint()
+    {
+        return slashAnimSpawnPoint;
     }
 
     private void PlayerInput()

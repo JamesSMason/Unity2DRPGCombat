@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ActiveWeapon : Singleton<ActiveWeapon>
 {
-    [SerializeField] private MonoBehaviour currentActiveWeapon = null;
+    public MonoBehaviour CurrentActiveWeapon { get; private set; }
 
     private PlayerControls playerControls = null;
 
@@ -20,7 +20,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         playerControls.Enable();
     }
 
-    void Start()
+    private void Start()
     {
         playerControls.Combat.Attack.started += _ => StartAttacking();
         playerControls.Combat.Attack.canceled += _ => StopAttacking();
@@ -29,6 +29,16 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
     public void ToggleIsAttacking(bool value)
     {
         isAttacking = value;
+    }
+
+    public void NewWeapon(MonoBehaviour newWeapon)
+    {
+        CurrentActiveWeapon = newWeapon;
+    }
+
+    public void WeaponNull()
+    {
+        CurrentActiveWeapon = null;
     }
 
     private void Update()
@@ -51,7 +61,7 @@ public class ActiveWeapon : Singleton<ActiveWeapon>
         if (attackButtonDown && !isAttacking)
         {
             ToggleIsAttacking(true);
-            ((IWeapon)currentActiveWeapon).Attack();
+            (CurrentActiveWeapon as IWeapon).Attack();
         }
     }
 }
