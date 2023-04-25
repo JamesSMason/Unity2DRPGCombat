@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +6,7 @@ public class Sword : MonoBehaviour, IWeapon
     private const string ATTACK_TRIGGER_STRING = "Attack";
 
     [SerializeField] private GameObject slashAnimPrefab = null;
-    [SerializeField] private float swordAttackCD = 0.5f;
+    [SerializeField] private WeaponInfo weaponInfo = null;
 
     private Animator myAnimator = null;
 
@@ -76,20 +75,17 @@ public class Sword : MonoBehaviour, IWeapon
         }
     }
 
-    private IEnumerator AttackCDRoutine()
-    {
-        yield return new WaitForSeconds(swordAttackCD);
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
-    }
-
     public void Attack()
     {
-        //isAttacking = true;
         myAnimator.SetTrigger(ATTACK_TRIGGER_STRING);
         weaponCollider.gameObject.SetActive(true);
 
         slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
         slashAnim.transform.parent = this.transform.parent;
-        StartCoroutine(AttackCDRoutine());
+    }
+
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
     }
 }
