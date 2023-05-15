@@ -3,11 +3,37 @@ using UnityEngine.InputSystem;
 
 public class Staff : MonoBehaviour, IWeapon
 {
+    private readonly int FIRE_HASH = Animator.StringToHash("Fire");
+
     [SerializeField] private WeaponInfo weaponInfo = null;
+    [SerializeField] private GameObject magicLaser = null;
+    [SerializeField] private Transform magicLaserSpawnPoint = null;
+
+    private Animator myAnimator = null;
+
+    private void Awake()
+    {
+        myAnimator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
         MouseFollowWithOffset();
+    }
+
+    public void Attack()
+    {
+        myAnimator.SetTrigger(FIRE_HASH);
+    }
+
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
+    }
+
+    public void SpawnStaffProjectileAnimEvent()
+    {
+        GameObject newLaser = Instantiate(magicLaser, magicLaserSpawnPoint.position, Quaternion.identity);
     }
 
     private void MouseFollowWithOffset()
@@ -25,15 +51,5 @@ public class Staff : MonoBehaviour, IWeapon
         {
             ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
-    }
-
-    public void Attack()
-    {
-        Debug.Log("Staff");
-    }
-
-    public WeaponInfo GetWeaponInfo()
-    {
-        return weaponInfo;
     }
 }
