@@ -4919,6 +4919,7 @@ GameObject:
   - component: {fileID: 725555500}
   - component: {fileID: 725555499}
   - component: {fileID: 725555498}
+  - component: {fileID: 725555501}
   m_Layer: 0
   m_Name: Second
   m_TagString: Untagged
@@ -23047,6 +23048,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &725555501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725555494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944380b177556234a83e28d2e7b45bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &743782947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8583220725999277301, guid: abaf80fea7ac8cf4ab398439b35b4ae5, type: 3}
@@ -80290,6 +80303,7 @@ GameObject:
   - component: {fileID: 1843827274}
   - component: {fileID: 1843827273}
   - component: {fileID: 1843827272}
+  - component: {fileID: 1843827275}
   m_Layer: 0
   m_Name: First
   m_TagString: Untagged
@@ -112960,6 +112974,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1843827275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843827268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944380b177556234a83e28d2e7b45bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1848156295
 GameObject:
   m_ObjectHideFlags: 0
