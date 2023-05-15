@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class Sword : MonoBehaviour, IWeapon
 {
-    private const string ATTACK_TRIGGER_STRING = "Attack";
+    private readonly int ATTACK_TRIGGER_HASH = Animator.StringToHash("Attack");
 
     [SerializeField] private GameObject slashAnimPrefab = null;
     [SerializeField] private WeaponInfo weaponInfo = null;
@@ -77,7 +77,7 @@ public class Sword : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        myAnimator.SetTrigger(ATTACK_TRIGGER_STRING);
+        myAnimator.SetTrigger(ATTACK_TRIGGER_HASH);
         weaponCollider.gameObject.SetActive(true);
 
         slashAnim = Instantiate(slashAnimPrefab, slashAnimSpawnPoint.position, Quaternion.identity);
