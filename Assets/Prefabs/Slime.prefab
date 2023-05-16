@@ -17,6 +17,9 @@ GameObject:
   - component: {fileID: 682232291132589210}
   - component: {fileID: 6635582193309766508}
   - component: {fileID: 6759542421814303494}
+  - component: {fileID: 2701293522847313296}
+  - component: {fileID: 4334949804569661020}
+  - component: {fileID: 3536424552532717950}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Untagged
@@ -38,7 +41,7 @@ Transform:
   m_Children:
   - {fileID: 466208099374511328}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4770764050231894651
 SpriteRenderer:
@@ -222,6 +225,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whiteFlashMat: {fileID: 2100000, guid: cd2c0a5ce187ce9469ca324ab1a2c87d, type: 2}
   restoreDefaultMatTime: 0.1
+--- !u!95 &2701293522847313296
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737120134963016123}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fe73bbfe7b3ee604a90ea745a7a82a28, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &4334949804569661020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737120134963016123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65611e2ac3655645a0a0f15fd1fa92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnimator: {fileID: 2701293522847313296}
+--- !u!210 &3536424552532717950
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3737120134963016123}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &5803442101593770527
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,12 +6,15 @@ public class EnemyPathfinding : MonoBehaviour
 
     private Knockback knockback = null;
     private Rigidbody2D rb = null;
+    private SpriteRenderer spriteRenderer = null;
+
     private Vector2 moveDir = Vector2.zero;
 
     private void Awake()
     {
         knockback = GetComponent<Knockback>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -23,5 +26,14 @@ public class EnemyPathfinding : MonoBehaviour
     public void MoveTo(Vector2 targetPosition)
     {
         moveDir = targetPosition;
+
+        if (moveDir.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 }
