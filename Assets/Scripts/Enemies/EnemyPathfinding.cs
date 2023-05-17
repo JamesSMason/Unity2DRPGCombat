@@ -36,4 +36,9 @@ public class EnemyPathfinding : MonoBehaviour
             spriteRenderer.flipX = false;
         }
     }
+
+    public void StopMoving()
+    {
+        moveDir = Vector2.zero;
+    }
 }

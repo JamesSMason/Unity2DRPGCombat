@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -28,13 +29,17 @@ public class Projectile : MonoBehaviour
 
         if (!collision.isTrigger && (enemyHealth || indestructible || player))
         {
-            if (player && isEnemyProjectile)
+            if ((player && isEnemyProjectile) || (enemyHealth && !isEnemyProjectile))
             {
-                player.TakeDamage(1, transform);
+                player?.TakeDamage(1, transform);
+                Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
+                Destroy(gameObject);
             }
-
-            Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
-            Destroy(gameObject);
+            else if (!collision.isTrigger && indestructible)
+            {
+                Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
         }
     }
 
