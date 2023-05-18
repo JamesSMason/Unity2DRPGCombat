@@ -11,6 +11,8 @@ public class Shooter : MonoBehaviour, IEnemy
     [SerializeField][Tooltip("The distance the bullets spawn away from the spawning object.")] private float startingDistance = 0.1f;
     [SerializeField][Tooltip("The delay between each burst in a single attack.")] private float timeBetweenBursts = 0.3f;
     [SerializeField][Tooltip("The recovery time after an attack.")] private float restTime = 2.0f;
+    [SerializeField][Tooltip("Stagger the spawn of the bullets over the time between bursts.")] private bool stagger = false;
+    [SerializeField][Tooltip("Reverse the direction of each burst.")] private bool oscillate = false;
 
     private bool isShooting = false;
 
@@ -27,11 +29,35 @@ public class Shooter : MonoBehaviour, IEnemy
     {
         isShooting = true;
 
-        float startAngle, currentAngle, angleStep;
-        TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep);
+        float startAngle, currentAngle, angleStep, endAngle;
+        float timeBetweenProjectiles = 0.0f;
+
+        TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
+
+        if (stagger)
+        {
+            timeBetweenProjectiles = timeBetweenBursts / projectilesPerBurst;
+        }
 
         for (int i = 0; i < burstCount; i++)
         {
+            if (!oscillate)
+            {
+                TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
+            }
+
+            if (oscillate && i % 2 != 1)
+            {
+                TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
+            }
+            else
+            {
+                currentAngle = endAngle;
+                endAngle = startAngle;
+                startAngle = currentAngle;
+                angleStep *= -1;
+            }
+
             for (int j = 0; j < projectilesPerBurst; j++)
             {
                 Vector2 pos = FindBulletSpawnPos(currentAngle);
@@ -45,26 +71,32 @@ public class Shooter : MonoBehaviour, IEnemy
                 }
 
                 currentAngle += angleStep;
+
+                if (stagger)
+                {
+                    yield return new WaitForSeconds(timeBetweenProjectiles);
+                }
             }
 
             currentAngle = startAngle;
 
-            yield return new WaitForSeconds(timeBetweenBursts);
-
-            TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep);
+            if (!stagger)
+            {
+                yield return new WaitForSeconds(timeBetweenBursts);
+            }
         }
 
         yield return new WaitForSeconds(restTime);
         isShooting = false;
     }
 
-    private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep)
+    private void TargetConeOfInfluence(out float startAngle, out float currentAngle, out float angleStep, out float endAngle)
     {
         Vector2 targetDirection = PlayerController.Instance.transform.position - transform.position;
         float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
 
         startAngle = targetAngle;
-        float endAngle = targetAngle;
+        endAngle = targetAngle;
         currentAngle = targetAngle;
         float halfAngleSpread = 0.0f;
         angleStep = 0.0f;
