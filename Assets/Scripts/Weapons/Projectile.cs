@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 22f;
+    [SerializeField] private float projectileSpeed = 22f;
     [SerializeField] private GameObject particleOnHitPrefabVFX = null;
     [SerializeField] private float projectileRange = 10.0f;
     [SerializeField] private bool isEnemyProjectile = false;
@@ -48,9 +48,14 @@ public class Projectile : MonoBehaviour
         this.projectileRange = projectileRange;
     }
 
+    public void UpdateProjectileSpeed(float projectileSpeed)
+    {
+        this.projectileSpeed = projectileSpeed;
+    }
+
     private void MoveProjectile()
     {
-        Vector3 moveDir = Vector3.right * moveSpeed * Time.deltaTime;
+        Vector3 moveDir = Vector3.right * projectileSpeed * Time.deltaTime;
         transform.Translate(moveDir);
     }
 
