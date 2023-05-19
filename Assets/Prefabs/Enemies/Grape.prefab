@@ -42,7 +42,7 @@ Transform:
   m_Children:
   - {fileID: 530029361159043720}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2178661051861788826
 SpriteRenderer:
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  deathVFXPrefab: {fileID: 7837017070136461516, guid: 6a5854e09ed288d4d8b5c77ca82e7248, type: 3}
+  deathVFXPrefab: {fileID: 4125124023767465514, guid: 8cde926225879fe4f8e7bf348460e7a6, type: 3}
   knockBackThrust: 15
 --- !u!114 &3358212108726005870
 MonoBehaviour:
