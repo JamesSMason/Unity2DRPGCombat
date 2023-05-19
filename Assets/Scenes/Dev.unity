@@ -3336,7 +3336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5505145360494489446, guid: a41eea0d733bbcf4ca810a421c57695a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5806962460025169219, guid: a41eea0d733bbcf4ca810a421c57695a, type: 3}
       propertyPath: stopMovingWhileAttacking
@@ -3531,7 +3531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5505145360494489446, guid: a41eea0d733bbcf4ca810a421c57695a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5806962460025169219, guid: a41eea0d733bbcf4ca810a421c57695a, type: 3}
       propertyPath: attackRange
@@ -4381,7 +4381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3737120134963016123, guid: b541d624c58176149a539d2d7336c599, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6336682787915552864, guid: b541d624c58176149a539d2d7336c599, type: 3}
       propertyPath: m_RootOrder
@@ -4556,7 +4556,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5505145360494489446, guid: a41eea0d733bbcf4ca810a421c57695a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8622492919813366315, guid: a41eea0d733bbcf4ca810a421c57695a, type: 3}
       propertyPath: myAnimator
@@ -5016,7 +5016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5505145360494489446, guid: a41eea0d733bbcf4ca810a421c57695a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5806962460025169219, guid: a41eea0d733bbcf4ca810a421c57695a, type: 3}
       propertyPath: stopMovingWhileAttacking
@@ -5046,7 +5046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &703460187
 Transform:
   m_ObjectHideFlags: 0
@@ -23577,7 +23577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3737120134963016123, guid: b541d624c58176149a539d2d7336c599, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6336682787915552864, guid: b541d624c58176149a539d2d7336c599, type: 3}
       propertyPath: m_RootOrder
@@ -27707,7 +27707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3737120134963016123, guid: b541d624c58176149a539d2d7336c599, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6336682787915552864, guid: b541d624c58176149a539d2d7336c599, type: 3}
       propertyPath: m_RootOrder
@@ -27772,7 +27772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3737120134963016123, guid: b541d624c58176149a539d2d7336c599, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6336682787915552864, guid: b541d624c58176149a539d2d7336c599, type: 3}
       propertyPath: m_RootOrder
@@ -136123,7 +136123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3737120134963016123, guid: b541d624c58176149a539d2d7336c599, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6336682787915552864, guid: b541d624c58176149a539d2d7336c599, type: 3}
       propertyPath: m_RootOrder
@@ -136481,7 +136481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5505145360494489446, guid: a41eea0d733bbcf4ca810a421c57695a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8622492919813366315, guid: a41eea0d733bbcf4ca810a421c57695a, type: 3}
       propertyPath: myAnimator
