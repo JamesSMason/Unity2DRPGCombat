@@ -20,21 +20,22 @@ public class EnemyPathfinding : MonoBehaviour
     private void FixedUpdate()
     {
         if (knockback.GettingKnockedBack) { return; }
-        rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
-    }
 
-    public void MoveTo(Vector2 targetPosition)
-    {
-        moveDir = targetPosition;
+        rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
 
         if (moveDir.x < 0)
         {
             spriteRenderer.flipX = true;
         }
-        else
+        else if (moveDir.x > 0)
         {
             spriteRenderer.flipX = false;
         }
+    }
+
+    public void MoveTo(Vector2 targetPosition)
+    {
+        moveDir = targetPosition;
     }
 
     public void StopMoving()
