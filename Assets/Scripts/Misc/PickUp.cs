@@ -1,12 +1,15 @@
-using System.Runtime.CompilerServices;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class PickUp : MonoBehaviour
 {
     [SerializeField] private float pickUpDistance = 5.0f;
     [SerializeField] private float moveSpeed = 3.0f;
     [SerializeField] private float accelerationRate = 0.3f;
+    [SerializeField] private AnimationCurve animCurve = null;
+    [SerializeField] private float heightY = 1.5f;
+    [SerializeField] private float popDuration = 1.0f;
+    [SerializeField] private float spawnPointRandomOffset = 2.5f;
 
     private Vector3 moveDir = Vector3.zero;
 
@@ -15,6 +18,11 @@ public class PickUp : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(AnimCurveSpawnRoutine());
     }
 
     private void Update()
@@ -43,6 +51,29 @@ public class PickUp : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>())
         {
             Destroy(gameObject);
+        }
+    }
+
+    private IEnumerator AnimCurveSpawnRoutine()
+    {
+        Vector2 startPos = transform.position;
+        float randomX = Random.Range(-spawnPointRandomOffset, spawnPointRandomOffset);
+        float randomY = Random.Range(-spawnPointRandomOffset, spawnPointRandomOffset) / 2;
+        Vector2 endPos = transform.position + new Vector3(randomX, randomY, 0.0f);
+
+        float timePassed = 0.0f;
+
+        while (timePassed < popDuration)
+        {
+            timePassed += Time.deltaTime;
+
+            float linearT = timePassed / popDuration;
+            float heightT = animCurve.Evaluate(linearT);
+            float height = Mathf.Lerp(0.0f, heightY, heightT);
+
+            transform.position = Vector2.Lerp(startPos, endPos, linearT) + new Vector2(0.0f, height);
+
+            yield return null;
         }
     }
 }
