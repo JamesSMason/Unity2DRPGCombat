@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5715089612738437751}
   - component: {fileID: 2531114065092651387}
   - component: {fileID: 515678028462356146}
+  - component: {fileID: -2970496317240847523}
   m_Layer: 0
   m_Name: Gold Coin
   m_TagString: Untagged
@@ -212,3 +213,16 @@ MonoBehaviour:
   heightY: 2
   popDuration: 0.5
   spawnPointRandomOffset: 2
+--- !u!114 &-2970496317240847523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525413528496316913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65611e2ac3655645a0a0f15fd1fa92f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnimator: {fileID: 1408687018499159429}

@@ -3,6 +3,14 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    private enum PickUpType
+    {
+        GoldCoin,
+        StaminaGlobe,
+        HealthGlobe
+    }
+
+    [SerializeField] private PickUpType pickUpType;
     [SerializeField] private float pickUpDistance = 5.0f;
     [SerializeField] private float moveSpeed = 3.0f;
     [SerializeField] private float accelerationRate = 0.3f;
@@ -50,7 +58,25 @@ public class PickUp : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerController>())
         {
+            DetectPickupType();
             Destroy(gameObject);
+        }
+    }
+
+    public void DetectPickupType()
+    {
+        switch (pickUpType)
+        {
+            case PickUpType.GoldCoin:
+                Debug.Log("Gold Coin");
+                break;
+            case PickUpType.HealthGlobe:
+                PlayerHealth.Instance.HealPlayer();
+                Debug.Log("Health Globe");
+                break;
+            case PickUpType.StaminaGlobe:
+                Debug.Log("Stamina Globe");
+                break;
         }
     }
 
