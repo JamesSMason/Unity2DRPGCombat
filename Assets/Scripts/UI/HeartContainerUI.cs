@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HeartContainerUI : MonoBehaviour
 {
-    [SerializeField] Image healthImage = null;
+    [SerializeField] private Image healthImage = null;
 
     private void Start()
     {
