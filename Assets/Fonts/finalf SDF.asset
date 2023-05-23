@@ -60,9 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: finalf SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -1425635781
   material: {fileID: 5644553795940374983}
-  materialHashCode: 0
+  materialHashCode: -402469061
   m_Version: 1.1.0
   m_SourceFontFileGUID: 6335bbb72f8cb8840bd412e6c51f0c18
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 6335bbb72f8cb8840bd412e6c51f0c18, type: 3}
@@ -87,7 +87,7 @@ MonoBehaviour:
     m_SubscriptSize: 0.5
     m_UnderlineOffset: 0
     m_UnderlineThickness: 0
-    m_StrikethroughOffset: 0
+    m_StrikethroughOffset: 40
     m_StrikethroughThickness: 0
     m_TabWidth: 0
   m_GlyphTable:
@@ -1139,7 +1139,7 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _Diffuse: 0.5
-    - _FaceDilate: 0
+    - _FaceDilate: 0.17
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
@@ -1153,12 +1153,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.25
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.8333333
+    - _ScaleRatioB: 0.53541666
+    - _ScaleRatioC: 0.53541666
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -1174,7 +1174,7 @@ Material:
     - _UnderlayDilate: 0
     - _UnderlayOffsetX: 0
     - _UnderlayOffsetY: 0
-    - _UnderlaySoftness: 0
+    - _UnderlaySoftness: 0.41
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
     - _WeightBold: 0.75

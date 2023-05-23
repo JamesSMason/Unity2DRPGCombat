@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10.0f;
     [SerializeField] private float damageRecoveryTime = 1.0f;
+
+    public Action<float> OnHealthUpdated;
 
     private int currentHealth;
     private bool canTakeDamage = true;
@@ -38,7 +41,11 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     public void HealPlayer()
     {
-        currentHealth += 1;
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += 1;
+        }
+        OnHealthUpdated?.Invoke(GetHealthRatio());
     }
 
     public void TakeDamage(int damageAmount, Transform hitTransform)
@@ -51,6 +58,22 @@ public class PlayerHealth : Singleton<PlayerHealth>
         canTakeDamage = false;
         currentHealth -= damageAmount;
         StartCoroutine(DamageRecoveryRoutine());
+        OnHealthUpdated?.Invoke(GetHealthRatio());
+        CheckIfPlayerDeath();
+    }
+
+    private float GetHealthRatio()
+    {
+        return (float)currentHealth / maxHealth;
+    }
+
+    private void CheckIfPlayerDeath()
+    {
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Debug.Log("You are dead! Ha!");
+        }
     }
 
     private IEnumerator DamageRecoveryRoutine()
